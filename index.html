@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Coinnect</title>
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#007bff" />
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 100px; background: white; }
-    h1 { font-size: 32px; margin-bottom: 40px; }
+    body { font-family: system-ui, sans-serif; margin: 0; background: #fff; }
+    .wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .card { text-align: center; padding: 40px 24px; }
+    h1 { font-size: 32px; margin-bottom: 16px; }
+    p { color: #666; margin-bottom: 32px; }
     button {
-      padding: 15px 30px;
+      padding: 14px 24px;
       font-size: 18px;
-      border-radius: 8px;
+      border-radius: 10px;
       border: none;
       background: #007bff;
-      color: white;
+      color: #fff;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>Coinnect</h1>
-  <button onclick="registerUser()">Регистрация</button>
+  <div class="wrap">
+    <div class="card">
+      <h1>Coinnect</h1>
+      <p>Track income and expenses together</p>
+      <button onclick="registerUser()">Регистрация</button>
+    </div>
+  </div>
 
   <script type="module" src="firebase.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(console.error);
+    }
+  </script>
 </body>
 </html>
